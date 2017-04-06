@@ -1,4 +1,3 @@
-// Prepared via DigitalOcean 1-Click provisioning
 // # Ghost Configuration
 // Setup your Ghost install for various [environments](http://support.ghost.org/config/#about-environments).
 
@@ -12,20 +11,12 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://138.68.167.115',
+        url: 'http://my-ghost-blog.com',
         mail: {},
         database: {
-
-            // This part was prepared during first boot by DigitalOcean's 1-Click first-provisioning
-            // This section is unique to this droplet
-            client: 'mysql',
-                connection: {
-                  host     : '127.0.0.1',
-                  user     : 'ghost',
-                  password : '44fdc1476902b3c292a169371ee765d02d906693c0e969bd',
-                  database : 'ghost',
-                  charset  : 'utf8'
-            // End of per-droplet configuration
+            client: 'sqlite3',
+            connection: {
+                filename: path.join(__dirname, '/content/data/ghost.db')
             },
             debug: false
         },
